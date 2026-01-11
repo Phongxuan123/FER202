@@ -1,0 +1,38 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.card-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 15px;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-name {
+  font-size: 20px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.card-info {
+  font-size: 14px;
+  color: #555;
+  margin: 8px 0;
+}
+
+.card-info strong {
+  color: #333;
+}
