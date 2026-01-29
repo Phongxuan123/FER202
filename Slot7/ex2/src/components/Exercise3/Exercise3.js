@@ -2,38 +2,33 @@ import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col, Card } from 'react-bootstrap';
 import '../../styles/Exercise3.css';
 
-/**
- * Exercise 3: Sử dụng useState với Object để quản lý Form
- * 
- * useState có thể lưu trữ bất kỳ kiểu dữ liệu nào, kể cả object
- * Sử dụng spread operator (...) để cập nhật một phần của object
- * Syntax: setForm({...form, [field]: value})
- */
+// Exercise 3: Quản lý form với useState Object và spread operator
 function Exercise3() {
-  // useState với Object để quản lý nhiều field của form
+  // State object chứa tất cả các field của form
   const [form, setForm] = useState({
     name: '',
     price: '',
     category: ''
   });
 
-  // useState riêng để lưu dữ liệu đã submit
+  // State lưu dữ liệu đã submit để hiển thị
   const [submittedData, setSubmittedData] = useState(null);
 
-  // Cập nhật form sử dụng spread operator
+  // Hàm cập nhật form khi input thay đổi, sử dụng spread operator
   const handleChange = (e) => {
-    // Spread operator giữ nguyên các field khác, chỉ cập nhật field được thay đổi
     setForm({
       ...form,
       [e.target.name]: e.target.value
     });
   };
 
+  // Hàm xử lý submit form
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmittedData(form);
   };
 
+  // Hàm reset form về trạng thái ban đầu
   const handleReset = () => {
     setForm({
       name: '',
@@ -43,16 +38,15 @@ function Exercise3() {
     setSubmittedData(null);
   };
 
+  // Render giao diện: form nhập liệu và card hiển thị kết quả
   return (
     <div className="exercise3-container">
       <Container>
         <Row className="justify-content-center">
           <Col md={8}>
             <h2 className="text-center exercise3-title">Exercise 3: useState - Quản lý Form Object</h2>
-            <div className="alert alert-info text-center mb-3">
-              <small><strong>useState Hook:</strong> const [form, setForm] = useState(&#123;name: '', price: '', category: ''&#125;)</small>
-            </div>
             
+            {/* Form nhập thông tin sản phẩm */}
             <Card className="mb-4 form-card">
             <Card.Body>
               <Form onSubmit={handleSubmit}>
@@ -109,6 +103,7 @@ function Exercise3() {
             </Card.Body>
           </Card>
 
+          {/* Hiển thị kết quả sau khi submit */}
           {submittedData && (
             <Card className="result-card">
               <Card.Header>

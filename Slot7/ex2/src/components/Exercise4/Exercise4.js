@@ -2,44 +2,36 @@ import React, { useState } from 'react';
 import { Container, Form, Button, ListGroup, Row, Col, Card } from 'react-bootstrap';
 import '../../styles/Exercise4.css';
 
-/**
- * Exercise 4: Sử dụng useState với Array để quản lý danh sách
- * 
- * useState với array để quản lý danh sách các item
- * - Thêm item: [...array, newItem]
- * - Xóa item: array.filter(item => condition)
- */
+// Exercise 4: Quản lý danh sách Todo bằng useState Array
 function Exercise4() {
-  // useState với Array để quản lý danh sách todos
+  // State array chứa danh sách todos
   const [todos, setTodos] = useState([]);
   
-  // useState cho input value
+  // State lưu giá trị input
   const [inputValue, setInputValue] = useState('');
 
-  // Thêm todo mới vào array sử dụng spread operator
+  // Hàm thêm todo mới vào array bằng spread operator
   const handleAddTodo = (e) => {
     e.preventDefault();
     if (inputValue.trim() !== '') {
-      // Spread operator để thêm item mới vào cuối array
       setTodos([...todos, { id: Date.now(), text: inputValue }]);
       setInputValue('');
     }
   };
 
-  // Xóa todo sử dụng filter để tạo array mới không chứa item bị xóa
+  // Hàm xóa todo bằng filter
   const handleDeleteTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
+  // Render giao diện: form thêm todo và danh sách todos
   return (
     <div className="exercise4-container">
       <Container>
         <h2 className="text-center exercise4-title mb-3">Exercise 4: useState - Quản lý Array (Todo List)</h2>
-        <div className="alert alert-info text-center mb-4">
-          <small><strong>useState Hook:</strong> const [todos, setTodos] = useState([])</small>
-        </div>
         
         <Row>
+          {/* Form nhập todo mới */}
           <Col md={6}>
             <Card className="todo-input-card h-100">
               <Card.Body>
@@ -62,6 +54,7 @@ function Exercise4() {
             </Card>
           </Col>
 
+          {/* Danh sách todos, render bằng map() */}
           <Col md={6}>
             <Card className="todo-list-card h-100">
               <Card.Header>
@@ -72,6 +65,7 @@ function Exercise4() {
                   <p className="empty-state">Chưa có công việc nào</p>
                 ) : (
                   <ListGroup variant="flush">
+                    {/* Render từng todo, cần có key prop */}
                     {todos.map((todo) => (
                       <ListGroup.Item
                         key={todo.id}

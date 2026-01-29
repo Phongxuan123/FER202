@@ -2,28 +2,22 @@ import React, { useState } from 'react';
 import { Container, Button, Modal } from 'react-bootstrap';
 import '../../styles/Exercise2.css';
 
-/**
- * Exercise 2: Sử dụng useState để quản lý trạng thái Modal
- * 
- * useState với giá trị boolean để kiểm soát hiển thị/ẩn Modal
- * - true: hiển thị modal
- * - false: ẩn modal
- */
+// Exercise 2: Quản lý trạng thái mở/đóng Modal bằng useState
 function Exercise2() {
-  // useState với giá trị boolean để quản lý trạng thái modal
+  // Khai báo state boolean để kiểm soát hiển thị modal
   const [isShowModal, setIsShowModal] = useState(false);
 
-  // Mở modal - set state thành true
+  // Hàm mở modal
   const handleOpenModal = () => {
     setIsShowModal(true);
   };
 
-  // Đóng modal - set state thành false
+  // Hàm đóng modal
   const handleCloseModal = () => {
     setIsShowModal(false);
   };
 
-  // Xử lý xác nhận và đóng modal
+  // Hàm xử lý xác nhận và đóng modal
   const handleConfirm = () => {
     const confirmed = window.confirm(
       'Bạn có chắc chắn muốn duyệt đơn hàng này để chuyển sang bộ phận kho không?'
@@ -35,14 +29,13 @@ function Exercise2() {
     }
   };
 
+  // Render giao diện: nút trigger và Modal được điều khiển bởi state
   return (
     <div className="exercise2-container">
       <Container>
         <div className="exercise2-card">
           <h2 className="text-center exercise2-title">Exercise 2: useState - Quản lý Modal</h2>
-          <div className="alert alert-info text-center mb-3">
-            <small><strong>useState Hook:</strong> const [isShowModal, setIsShowModal] = useState(false)</small>
-          </div>
+          {/* Nút mở modal */}
           <div className="text-center">
             <Button variant="primary" onClick={handleOpenModal} className="process-btn">
               Xử lý đơn hàng
@@ -51,6 +44,7 @@ function Exercise2() {
         </div>
       </Container>
 
+      {/* Modal hiển thị khi isShowModal = true */}
       <Modal show={isShowModal} onHide={handleCloseModal} centered className="custom-modal">
         <Modal.Header closeButton>
           <Modal.Title>Xác nhận xử lý đơn hàng</Modal.Title>

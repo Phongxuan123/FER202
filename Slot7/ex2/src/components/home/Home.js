@@ -3,7 +3,9 @@ import { Container, Card, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../../styles/Home.css';
 
+// Component trang chủ hiển thị danh sách các bài tập
 function Home() {
+  // Render danh sách các bài tập dạng card grid
   return (
     <div className="home-container">
       <Container>
@@ -12,6 +14,7 @@ function Home() {
           <h5>📚 Chủ đề: Using useState Hook</h5>
           <p className="mb-0">Các bài tập thực hành về React useState Hook - quản lý state trong Function Components</p>
         </div>
+        {/* Grid 2x2 hiển thị 4 bài tập */}
         <Row>
           <Col md={6} className="mb-4">
             <Card className="exercise-card">

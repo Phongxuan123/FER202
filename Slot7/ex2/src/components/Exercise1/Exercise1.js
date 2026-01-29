@@ -2,32 +2,24 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import '../../styles/Exercise1.css';
 
-/**
- * Exercise 1: Sử dụng useState để quản lý số lượng sản phẩm
- * 
- * useState Hook cho phép component function có thể quản lý state
- * Syntax: const [state, setState] = useState(initialValue)
- * - state: giá trị hiện tại
- * - setState: function để cập nhật state
- * - initialValue: giá trị khởi tạo
- */
+// Exercise 1: Quản lý số lượng sản phẩm bằng useState
 function Exercise1() {
-  // useState để quản lý số lượng - khởi tạo giá trị là 0
+  // Khai báo state để lưu số lượng, khởi tạo = 0
   const [quantity, setQuantity] = useState(0);
 
-  // Tăng số lượng - sử dụng setQuantity để cập nhật state
+  // Hàm tăng số lượng lên 1
   const handleIncrease = () => {
     setQuantity(quantity + 1);
   };
 
-  // Giảm số lượng - kiểm tra điều kiện trước khi cập nhật
+  // Hàm giảm số lượng xuống 1 (không cho phép số âm)
   const handleDecrease = () => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
     }
   };
 
-  // Cập nhật số lượng từ input
+  // Hàm xử lý khi user nhập trực tiếp vào input
   const handleChange = (e) => {
     const value = parseInt(e.target.value);
     if (!isNaN(value) && value >= 0) {
@@ -37,6 +29,7 @@ function Exercise1() {
     }
   };
 
+  // Render giao diện: form điều khiển số lượng với nút tăng/giảm và input
   return (
     <div className="exercise1-container">
       <Container>
@@ -44,11 +37,9 @@ function Exercise1() {
           <Col md={6}>
             <div className="exercise1-card">
               <h2 className="text-center exercise1-title">Exercise 1: useState - Quản lý Số lượng</h2>
-              <div className="alert alert-info text-center mb-3">
-                <small><strong>useState Hook:</strong> const [quantity, setQuantity] = useState(0)</small>
-              </div>
               <div className="quantity-control">
                 <div className="d-flex justify-content-center align-items-center gap-3">
+                  {/* Nút giảm, disabled khi quantity = 0 */}
                   <Button 
                     variant="danger" 
                     onClick={handleDecrease}
@@ -57,6 +48,7 @@ function Exercise1() {
                   >
                     -
                   </Button>
+                  {/* Input nhập số lượng, giá trị đồng bộ với state */}
                   <Form.Control
                     type="number"
                     value={quantity}
@@ -65,6 +57,7 @@ function Exercise1() {
                     style={{ width: '100px' }}
                     min="0"
                   />
+                  {/* Nút tăng */}
                   <Button 
                     variant="success" 
                     onClick={handleIncrease}
@@ -74,6 +67,7 @@ function Exercise1() {
                   </Button>
                 </div>
               </div>
+              {/* Hiển thị số lượng hiện tại */}
               <div className="text-center mt-3 quantity-display">
                 <p className="fs-5 mb-0">Số lượng hiện tại: <strong>{quantity}</strong></p>
               </div>
