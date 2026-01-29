@@ -1,0 +1,20 @@
+Exercise 1:
+Tạo một component chỉnh sửa số lượng sản phẩm. Gồm 1 input và 2 nút (+/-). Đảm bảo số lượng không nhỏ hơn 0.
+Exercise 2:
+Trong hệ thống E-Commerce, khi Admin nhấn nút "Xử lý đơn hàng",  một hộp thoại Modal xác nhận hiển thị thông báo.
+Yêu cầu:
+•	Trạng thái (useState): Tạo một biến isShowModal kiểu boolean.
+•	Hành động:  Click vào nút "Xử lý đơn hàng" -> Mở Modal.
+o	Click vào nút "Hủy" hoặc biểu tượng (X) -> Đóng Modal.
+o	Click vào nút "Xác nhận" -> “Bạn có chắc chắn muốn duyệt đơn hàng này để chuyển sang bộ phận kho không?” 
+Nếu chọn Xác nhận, hiển thị 1 alert thành công và tự động đóng Modal.
+Exercise 3:
+Yêu cầu: Tạo form gồm các trường: Tên sản phẩm, Giá, Danh mục. Sử dụng một Object duy nhất trong useState để quản lý toàn bộ form thay vì tách rời từng biến.
+•	Mục tiêu: Làm quen với việc "spread" object trong state: setForm({...form, name: e.target.value}).
+Exercise 4:
+Xây dựng một Component Todo List đơn giản, cho phép người dùng thêm các công việc mới vào danh sách và xóa chúng sau khi đã hoàn thành. Ứng dụng Todo List cần có các tính năng sau:
+•	Một trường nhập liệu (input): Để người dùng nhập nội dung công việc mới.
+•	Một nút bấm (button): Để xác nhận và thêm công việc mới vào danh sách.
+•	Hiển thị danh sách: Liệt kê các công việc đã được thêm.
+•	Nút xóa bên cạnh mỗi công việc: Cho phép người dùng gỡ bỏ công việc đó khỏi danh sách.
+Exercise 5: Tạo mới 1 NavBar chứa liên kết đến các bài tập đã làm: Exercise 1, Exercise 2, Exercise 3, Exercise 4. Sử dụng Routing trong React.
