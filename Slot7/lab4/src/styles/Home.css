@@ -1,0 +1,126 @@
+.home-container {
+  min-height: 80vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  padding: 3rem 0;
+}
+
+.home-title {
+  color: white;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.exercise-card {
+  background: white;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  height: 100%;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.exercise-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.exercise-card .card-body {
+  padding: 2rem;
+  position: relative;
+}
+
+.exercise-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.exercise-card .card-text {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  min-height: 60px;
+}
+
+.exercise-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.exercise-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+  color: white;
+  text-decoration: none;
+}
+
+/* Different gradient for each card */
+.exercise-card:nth-child(1) .exercise-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.exercise-card:nth-child(2) .exercise-link {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.exercise-card:nth-child(3) .exercise-link {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.exercise-card:nth-child(4) .exercise-link {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  color: #333;
+}
+
+/* Stagger animation for cards */
+.exercise-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.exercise-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.exercise-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.exercise-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
