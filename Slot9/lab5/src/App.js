@@ -9,6 +9,9 @@ import SlideBar from './components/SlideBar';
 import NewPage from './pages/NewPage';
 import Contact from './components/Contact';
 import Quiz from './components/Quiz';
+import LazyLoadingDemo from './components/LazyLoadingDemo';
+import UsersPage from './pages/UsersPage';
+import PostsPage from './pages/PostsPage';
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/news" element={<NewPage />} />
       <Route path="/quiz" element={<Quiz />} />
+      <Route path="/lazy-loading" element={<LazyLoadingDemo />} />
+      <Route path="/users" element={<UsersPage />} />
+      <Route path="/posts" element={<PostsPage />} />
       <Route path="/register" element={<DangKyForm />} />
       <Route path="/contact" element={<Contact />} />
     

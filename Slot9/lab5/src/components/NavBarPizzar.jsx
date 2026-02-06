@@ -13,8 +13,11 @@ function NavBarPizza() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+                        <Nav.Link as={NavLink} to="/users">Users</Nav.Link>
+                        <Nav.Link as={NavLink} to="/posts">Posts</Nav.Link>
                         <Nav.Link as={NavLink} to="/news">News</Nav.Link>
                         <Nav.Link as={NavLink} to="/quiz">Quiz</Nav.Link>
+                        <Nav.Link as={NavLink} to="/lazy-loading">Lazy Loading</Nav.Link>
                         <Nav.Link as={NavLink} to="/register">Đăng Ký Form</Nav.Link>
                         <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
                         
