@@ -12,6 +12,7 @@ import Quiz from './components/Quiz';
 import LazyLoadingDemo from './components/LazyLoadingDemo';
 import UsersPage from './pages/UsersPage';
 import PostsPage from './pages/PostsPage';
+import ErrorTestPage from './pages/ErrorTestPage';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path="/lazy-loading" element={<LazyLoadingDemo />} />
       <Route path="/users" element={<UsersPage />} />
       <Route path="/posts" element={<PostsPage />} />
+      <Route path="/error-test" element={<ErrorTestPage />} />
       <Route path="/register" element={<DangKyForm />} />
       <Route path="/contact" element={<Contact />} />
     
