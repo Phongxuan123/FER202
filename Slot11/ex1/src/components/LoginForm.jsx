@@ -2,36 +2,16 @@ import React, { useReducer } from 'react';
 import { Form, Button, Alert, Card } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 
-// Dữ liệu mẫu thay thế cho API call - Mock Data
-const mockAccounts = [
-  {
-    id: 1,
-    username: 'admin',
-    email: 'admin@example.com',
-    password: '123456',
-    role: 'admin',
-    status: 'active'
-  },
-  {
-    id: 2,
-    username: 'user1',
-    email: 'user1@example.com',
-    password: '123456',
-    role: 'user',
-    status: 'active'
-  },
-  {
-    id: 3,
-    username: 'user2',
-    email: 'user2@example.com',
-    password: '123456',
-    role: 'user',
-    status: 'locked'
-  }
-];
+const FORM_ACTIONS = {
+  SET_USERNAME: 'SET_USERNAME',
+  SET_PASSWORD: 'SET_PASSWORD',
+  SET_ERROR: 'SET_ERROR',
+  SET_SUBMITTED: 'SET_SUBMITTED',
+  SET_LOGIN_MESSAGE: 'SET_LOGIN_MESSAGE',
+  RESET_FORM: 'RESET_FORM'
+};
 
-// 1. Định nghĩa initial state cho form
-const initialState = {
+const initialFormState = {
   username: '',
   password: '',
   errors: {
@@ -42,35 +22,23 @@ const initialState = {
   loginMessage: ''
 };
 
-// 2. Định nghĩa các action types
-const ACTION_TYPES = {
-  SET_USERNAME: 'SET_USERNAME',
-  SET_PASSWORD: 'SET_PASSWORD',
-  SET_ERROR: 'SET_ERROR',
-  CLEAR_ERROR: 'CLEAR_ERROR',
-  SET_SUBMITTED: 'SET_SUBMITTED',
-  SET_LOGIN_MESSAGE: 'SET_LOGIN_MESSAGE',
-  RESET_FORM: 'RESET_FORM'
-};
-
-// 3. Định nghĩa reducer function để quản lý state
-function formReducer(state, action) {
+const loginFormReducer = (state, action) => {
   switch (action.type) {
-    case ACTION_TYPES.SET_USERNAME:
+    case FORM_ACTIONS.SET_USERNAME:
       return {
         ...state,
         username: action.payload,
         errors: { ...state.errors, username: '' }
       };
     
-    case ACTION_TYPES.SET_PASSWORD:
+    case FORM_ACTIONS.SET_PASSWORD:
       return {
         ...state,
         password: action.payload,
         errors: { ...state.errors, password: '' }
       };
     
-    case ACTION_TYPES.SET_ERROR:
+    case FORM_ACTIONS.SET_ERROR:
       return {
         ...state,
         errors: {
@@ -79,45 +47,34 @@ function formReducer(state, action) {
         }
       };
     
-    case ACTION_TYPES.CLEAR_ERROR:
-      return {
-        ...state,
-        errors: { ...state.errors, [action.payload]: '' }
-      };
-    
-    case ACTION_TYPES.SET_SUBMITTED:
+    case FORM_ACTIONS.SET_SUBMITTED:
       return {
         ...state,
         submitted: action.payload
       };
     
-    case ACTION_TYPES.SET_LOGIN_MESSAGE:
+    case FORM_ACTIONS.SET_LOGIN_MESSAGE:
       return {
         ...state,
         loginMessage: action.payload
       };
     
-    case ACTION_TYPES.RESET_FORM:
-      return initialState;
+    case FORM_ACTIONS.RESET_FORM:
+      return initialFormState;
     
     default:
       return state;
   }
-}
+};
 
 function LoginForm() {
-  // 4. Sử dụng useReducer để quản lý state của form
-  const [state, dispatch] = useReducer(formReducer, initialState);
-  
-  // 5. Lấy các function và state từ AuthContext
+  const [state, dispatch] = useReducer(loginFormReducer, initialFormState);
   const { login } = useAuth();
 
-  // 6. Hàm validate form
   const validateForm = () => {
     let isValid = true;
     const newErrors = { username: '', password: '' };
 
-    // Validate username
     if (!state.username.trim()) {
       newErrors.username = 'Vui lòng nhập tên đăng nhập!';
       isValid = false;
@@ -126,7 +83,6 @@ function LoginForm() {
       isValid = false;
     }
 
-    // Validate password
     if (!state.password) {
       newErrors.password = 'Vui lòng nhập mật khẩu!';
       isValid = false;
@@ -135,12 +91,11 @@ function LoginForm() {
       isValid = false;
     }
 
-    // Nếu có lỗi, dispatch để cập nhật errors
     if (!isValid) {
       Object.keys(newErrors).forEach(field => {
         if (newErrors[field]) {
           dispatch({
-            type: ACTION_TYPES.SET_ERROR,
+            type: FORM_ACTIONS.SET_ERROR,
             payload: { field, message: newErrors[field] }
           });
         }
@@ -150,75 +105,39 @@ function LoginForm() {
     return isValid;
   };
 
-  // 7. Xử lý khi input thay đổi
   const handleUsernameChange = (e) => {
     dispatch({
-      type: ACTION_TYPES.SET_USERNAME,
+      type: FORM_ACTIONS.SET_USERNAME,
       payload: e.target.value
     });
   };
 
   const handlePasswordChange = (e) => {
     dispatch({
-      type: ACTION_TYPES.SET_PASSWORD,
+      type: FORM_ACTIONS.SET_PASSWORD,
       payload: e.target.value
     });
   };
 
-  // 8. Xử lý submit form
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    dispatch({ type: ACTION_TYPES.SET_SUBMITTED, payload: true });
-    dispatch({ type: ACTION_TYPES.SET_LOGIN_MESSAGE, payload: '' });
+    dispatch({ type: FORM_ACTIONS.SET_SUBMITTED, payload: true });
+    dispatch({ type: FORM_ACTIONS.SET_LOGIN_MESSAGE, payload: '' });
 
-    // Validate form trước khi đăng nhập
     if (!validateForm()) {
       return;
     }
 
-    // Xử lý đăng nhập với Mock Data (không có API call)
-    // Tìm kiếm user trong mock data
-    const foundUser = mockAccounts.find(
-      (account) => account.username === state.username && account.password === state.password
-    );
-
-    // Kiểm tra user có tồn tại không
-    if (!foundUser) {
-      dispatch({
-        type: ACTION_TYPES.SET_LOGIN_MESSAGE,
-        payload: 'Tên đăng nhập hoặc mật khẩu không đúng!'
-      });
-      return;
-    }
-
-    // Kiểm tra tài khoản có bị khóa không
-    if (foundUser.status === 'locked') {
-      dispatch({
-        type: ACTION_TYPES.SET_LOGIN_MESSAGE,
-        payload: 'Tài khoản của bạn đã bị khóa!'
-      });
-      return;
-    }
-
-    // Kiểm tra phân quyền: chỉ admin mới được đăng nhập
-    if (foundUser.role !== 'admin') {
-      dispatch({
-        type: ACTION_TYPES.SET_LOGIN_MESSAGE,
-        payload: 'Chỉ có admin mới được phép đăng nhập!'
-      });
-      return;
-    }
-
-    // Đăng nhập thành công - gọi login từ AuthContext để lưu state
     const result = login(state.username, state.password);
 
+    dispatch({
+      type: FORM_ACTIONS.SET_LOGIN_MESSAGE,
+      payload: result.message
+    });
+
     if (result.success) {
-      dispatch({
-        type: ACTION_TYPES.SET_LOGIN_MESSAGE,
-        payload: 'Đăng nhập thành công!'
-      });
-      dispatch({ type: ACTION_TYPES.RESET_FORM });
+      dispatch({ type: FORM_ACTIONS.RESET_FORM });
     }
   };
 
@@ -303,7 +222,7 @@ function LoginForm() {
             {state.loginMessage && (
               <Alert 
                 variant={state.loginMessage.includes('thành công') ? 'success' : 'danger'}
-                onClose={() => dispatch({ type: ACTION_TYPES.SET_LOGIN_MESSAGE, payload: '' })}
+                onClose={() => dispatch({ type: FORM_ACTIONS.SET_LOGIN_MESSAGE, payload: '' })}
                 dismissible
                 style={{ marginBottom: '1.5rem' }}
               >

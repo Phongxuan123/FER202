@@ -1,0 +1,143 @@
+{
+  "genres": [
+    {
+      "id": "1",
+      "name": "Sci-Fi"
+    },
+    {
+      "id": "2",
+      "name": "Comedy"
+    },
+    {
+      "id": "3",
+      "name": "Drama"
+    },
+    {
+      "id": "4",
+      "name": "Horror"
+    },
+    {
+      "id": "5",
+      "name": "Romance"
+    },
+    {
+      "id": "6",
+      "name": "Action"
+    },
+    {
+      "id": "7",
+      "name": "Thriller"
+    }
+  ],
+  "movies": [
+    {
+      "id": "1",
+      "title": "Galactic Wars",
+      "description": "Epic space battles decide the fate of a fractured galaxy as rival factions clash for control.",
+      "poster": "/images/movie1.jpg",
+      "genreId": 1,
+      "year": 2022,
+      "country": "USA",
+      "duration": 132,
+      "avatar": "https://i.ytimg.com/vi/PdwwK7HFfNA/maxresdefault.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Laugh Out Loud",
+      "description": "A feel-good comedy about friendship, failure, and second chances in a small town.",
+      "poster": "/images/movie2.jpg",
+      "genreId": 2,
+      "year": 2021,
+      "country": "UK",
+      "duration": 105,
+      "avatar": "https://media.senscritique.com/media/000004686017/source_big/LOL_Laughing_Out_Loud.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Deep Blue",
+      "description": "A gripping survival drama set far from shore when a voyage goes wrong.",
+      "poster": "/images/movie3.jpg",
+      "genreId": 3,
+      "year": 2019,
+      "country": "Australia",
+      "duration": 118,
+      "avatar": "https://m.media-amazon.com/images/M/MV5BNGVlNmE3ODItOTU2ZC00OWYxLTk0NmMtZmMxMmEyZTllZDM3XkEyXkFqcGc@._V1_.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Haunted House",
+      "description": "A teen dares to spend one night in a house with a dark past—and uncovers the truth.",
+      "poster": "/images/movie4.jpg",
+      "genreId": 4,
+      "year": 2020,
+      "country": "Canada",
+      "duration": 98,
+      "avatar": "https://i.pinimg.com/originals/33/78/49/337849ea0c59ef1957414868a576e898.jpg"
+    },
+    {
+      "id": "5",
+      "title": "City of Love",
+      "description": "Two strangers meet in a sleepless city and rewrite their plans for life and love.",
+      "poster": "/images/movie5.jpg",
+      "genreId": 5,
+      "year": 2018,
+      "country": "France",
+      "duration": 110,
+      "avatar": "https://resizing.flixster.com/W_MYIiTuSvfDiwRrqRvEBbaLj9I=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzdlYWU2OGQwLTFlNzEtNGI2Ni1iNDY4LTU5NDNmMmIxZWE5ZS5qcGc="
+    },
+    {
+      "id": "6",
+      "title": "The Time Traveler",
+      "description": "A brilliant scientist discovers a way to bend time—at a cost no one could foresee.",
+      "poster": "/images/movie6.jpg",
+      "genreId": 1,
+      "year": 2023,
+      "country": "USA",
+      "duration": 124,
+      "avatar": "https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/0e87caa7-01b6-4898-9654-08e8c6303a82/trailer-for-a-sci-fi-time-travel-heist-movie-the-tomorrow-job.jpg"
+    },
+    {
+      "id": "7",
+      "title": "Street Runner",
+      "description": "An ex-courier is forced back into the fast lane for one last job across the neon city.",
+      "poster": "/images/movie7.jpg",
+      "genreId": 6,
+      "year": 2021,
+      "country": "Japan",
+      "duration": 102,
+      "avatar": "https://tse4.mm.bing.net/th/id/OIP.-SHp5ijlvqAfi8xHoo1JFwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+    },
+    {
+      "id": "8",
+      "title": "Hidden Truth",
+      "description": "A reporter unravels a conspiracy that powerful people will do anything to keep buried.",
+      "poster": "/images/movie8.jpg",
+      "genreId": 7,
+      "year": 2022,
+      "country": "Germany",
+      "duration": 115,
+      "avatar": "https://m.media-amazon.com/images/S/pv-target-images/1ba72a3e6ee1384de046ba7878a66f9c8f330fab63a477b69173cfdaed780c4d.jpg"
+    },
+    {
+      "id": "9",
+      "title": "Kingdom of Ash",
+      "description": "A fallen prince must unite rival clans to reclaim a cursed land and his destiny.",
+      "poster": "/images/movie9.jpg",
+      "genreId": 2,
+      "year": 2020,
+      "country": "New Zealand",
+      "duration": 141,
+      "avatar": "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale,dpr_1.5/jackets/9781526635273.jpg"
+    },
+    {
+      "id": "b312",
+      "avatar": "https://th.bing.com/th/id/OSK.W52-nm_rvG1sZbwpk8iA7-fAsyIcY74Z6RfDy3gncls?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "title": "Ohsama Sentai King-Ohger",
+      "description": "Super Sentai King - Ohger",
+      "genreId": 6,
+      "duration": 120,
+      "year": 2024,
+      "country": "Japan"
+    }
+  ]
+}
