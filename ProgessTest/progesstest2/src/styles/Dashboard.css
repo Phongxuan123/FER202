@@ -1,0 +1,83 @@
+/* Total Expenses card */
+.total-expenses-card {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+}
+
+.total-expenses-card .card-body {
+  padding: 16px 20px;
+}
+
+.total-expenses-card .card-title {
+  color: #212529;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.total-expenses-card h2 {
+  color: #212529 !important;
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+/* Form scroll anchor */
+.add-expense-form {
+  scroll-margin-top: 80px;
+}
+
+/* Table editing row highlight */
+.table-info td {
+  background-color: #e8f4fd !important;
+}
+
+/* Validation */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #dc3545;
+}
+
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.2);
+}
+
+/* Success alert animation */
+.alert-success {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Table */
+.table thead th {
+  background-color: #f8f9fa;
+  font-size: 13px;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.table tbody td {
+  font-size: 14px;
+  vertical-align: middle;
+  color: #343a40;
+}
+
+.table-responsive {
+  border-radius: 0 0 8px 8px;
+}
+
+.btn-sm {
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
