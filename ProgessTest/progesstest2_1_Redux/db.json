@@ -1,0 +1,77 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "anhnv",
+      "password": "admin123",
+      "fullName": "Nguyễn Văn Anh",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "username": "TamNT",
+      "password": "admin123",
+      "fullName": "Nguyễn Thị Tâm",
+      "role": "admin"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "1",
+      "userId": "1",
+      "name": "Lunch",
+      "amount": "85000",
+      "category": "Food",
+      "date": "2025-10-02"
+    },
+    {
+      "name": "Electricity Bill",
+      "amount": 250000,
+      "category": "Utilities",
+      "date": "2025-10-03",
+      "userId": "1",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "name": "Cinema",
+      "amount": 120000,
+      "category": "Entertainment",
+      "date": "2025-10-05"
+    },
+    {
+      "name": "Cafe",
+      "amount": 75000,
+      "category": "Food",
+      "date": "2025-10-07",
+      "userId": "1",
+      "id": "4"
+    },
+    {
+      "id": "5",
+      "userId": "2",
+      "name": "Breakfast",
+      "amount": 40000,
+      "category": "Food",
+      "date": "2025-10-01"
+    },
+    {
+      "id": "6",
+      "userId": "2",
+      "name": "Internet Bill",
+      "amount": 250000,
+      "category": "Utilities",
+      "date": "2025-10-03"
+    },
+    {
+      "id": "9f2b",
+      "name": "Dinner",
+      "amount": 25000,
+      "category": "Food",
+      "date": "2025-03-15",
+      "userId": "1"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
